@@ -9,6 +9,6 @@ RUN go build -o main .
 FROM alpine:latest AS production
 COPY  --from=builder /app .
 RUN mkdir /data 
-RUN touch /data/temp.txt
-#VOLUME [ "/data/temp.txt" ]
+#RUN touch /data/temp.txt
+VOLUME "/data/"
 CMD ["./main"]
